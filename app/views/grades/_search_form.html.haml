@@ -1,27 +1,30 @@
-%h2 Grade Search
-
 =form_tag :action=>'search'
-%table
+%table#search
 	%tbody
 		%tr
 			%td
 				= label :grade, :year, 'Year'
+			%td
 				= text_field :grade, :year
 		%tr
 			%td
 				= label :grade, :sem, 'Sem'
+			%td
 				= text_field :grade, :sem
 		%tr
 			%td
 				= label :grade, :dept, 'Dept'
+			%td
 				= text_field :grade, :dept
 		%tr
 			%td
 				= label :grade, :courseno, 'Course'
+			%td
 				= text_field :grade, :courseno
 		%tr
 			%td
 				= label :grade, :instructor, 'Instructor'
+			%td
 				= text_field :grade, :instructor
 		%tr
 			%td

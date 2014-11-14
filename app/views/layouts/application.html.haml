@@ -1,0 +1,18 @@
+!!! 5
+%html
+	%head
+		%title Grade Search!
+		= stylesheet_link_tag 'application'
+		= javascript_include_tag 'application'
+		= csrf_meta_tags
+		%table.title
+			%tbody
+				%tr
+					%td
+						%h2 Grade Search!
+					%td
+						=link_to 'about', '/about'
+
+	%body
+		#main
+			= yield

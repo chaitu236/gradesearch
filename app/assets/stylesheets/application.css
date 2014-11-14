@@ -11,3 +11,24 @@
  *= require_self
  *= require_tree .
  */
+
+table#search {
+	border-spacing: 2px;
+}
+
+table#results {
+	margin: 10px;
+	width: 80%;
+	text-align: center;
+}
+
+table#results th {
+	border: 1px;
+	font-weight: bold;
+	background-color: steelblue;
+	color: white;
+}
+
+table#results tr:nth-child(even){
+	background: lightblue;
+}
