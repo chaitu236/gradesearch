@@ -2,6 +2,21 @@ class GradesController < ApplicationController
 	def index
 	end
 
+	def search
+		data = params[:grade]
+		@grade = Grade.new data
+		if data
+			if data[:courseno]
+				logger.debug('searching for')
+				logger.debug(data[:courseno])
+				@grades = Grade.find_all_by_courseno data[:courseno]
+				logger.debug(@grades)
+			end
+		end
+
+		#redirect_to grades_path
+	end
+
 	def new
 	end
 

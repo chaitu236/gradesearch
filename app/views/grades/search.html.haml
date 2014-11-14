@@ -1,0 +1,50 @@
+%h2 Grade Search
+
+=form_tag :action=>'search'
+%table
+	%tbody
+		%tr
+			%td
+				= label :grade, :year, 'Year'
+				= text_field :grade, :year
+		%tr
+			%td
+				= label :grade, :sem, 'Sem'
+				= text_field :grade, :sem
+		%tr
+			%td
+				= label :grade, :courseno, 'Course'
+				= text_field :grade, :courseno
+		%tr
+			%td
+				= label :grade, :instructor, 'Instructor'
+				= text_field :grade, :instructor
+		%tr
+			%td
+				= submit_tag "Search"
+
+%h3 Search results
+-if @grades.count>0
+	%table
+		%thead
+			%tr
+				%th
+					Year
+				%th
+					Sem
+				%th
+					Course
+				%th
+					Instructor
+				%th
+					Avg GPR
+		%tbody
+			-@grades.each do |grade|
+				%tr
+					%td=grade.year
+					%td=grade.sem
+					%td=grade.dept+grade.courseno.to_s+'-'+grade.courseno2.to_s
+					%td=grade.instructor
+					%td=grade.gpr
+-else
+	No results found!
