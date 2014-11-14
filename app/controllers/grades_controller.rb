@@ -50,7 +50,7 @@ class GradesController < ApplicationController
 	def new
 	end
 
-	def create
+	def create_disabled
 		#logger.debug(params)
 		file = params[:file]
 		#logger.debug('look here')
