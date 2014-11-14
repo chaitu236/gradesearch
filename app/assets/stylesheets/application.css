@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
+table#title {
+	width: 100%;
+	background-color: lightblue;
+}
+
 table#search {
 	border-spacing: 2px;
 }

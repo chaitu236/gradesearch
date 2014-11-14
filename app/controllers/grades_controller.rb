@@ -23,8 +23,8 @@ class GradesController < ApplicationController
 				querys[querys.count] = data[:sem].upcase
 			end
 			if data[:dept].length > 0
-				queryf[queryf.count] = "dept = ?"
-				querys[querys.count] = data[:dept].upcase
+				queryf[queryf.count] = "dept like ?"
+				querys[querys.count] = "%"+data[:dept].upcase+"%"
 			end
 			if data[:instructor].length > 0
 				queryf[queryf.count] = "instructor like ?"

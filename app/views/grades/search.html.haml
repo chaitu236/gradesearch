@@ -43,10 +43,10 @@
 			-@grades.each do |grade|
 				%tr
 					%td=grade.year
-					%td=grade.sem
+					%td=grade.sem.downcase
 					%td=grade.dept
 					%td=grade.courseno.to_s+'-'+grade.courseno2.to_s
-					%td=grade.instructor
+					%td=grade.instructor.split.map(&:capitalize).join(' ')
 					%td=grade.gpr
 					%td=grade.a
 					%td=grade.b
