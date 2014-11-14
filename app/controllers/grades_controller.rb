@@ -8,25 +8,31 @@ class GradesController < ApplicationController
 		queryf = []
 		querys = []
 		if data
-			if data[:courseno].length > 0
-				queryf[queryf.count] = "courseno = ?"
+			if data[:courseno] && data[:courseno].length > 0
+				queryf[queryf.count] = "courseno like ?"
 				querys[querys.count] = data[:courseno]
-				#@grades = Grade.find_all_by_courseno data[:courseno]
-				#logger.debug(@grades)
 			end
-			if data[:year].length > 0
+			if data[:courseno2] && data[:courseno2].length > 0
+				queryf[queryf.count] = "courseno2 like ?"
+				querys[querys.count] = data[:courseno2]
+			end
+			if data[:year] && data[:year].length > 0
 				queryf[queryf.count] = "year = ?"
 				querys[querys.count] = data[:year]
 			end
-			if data[:sem].length > 0
+			if data[:sem] && data[:sem].length > 0
 				queryf[queryf.count] = "sem = ?"
 				querys[querys.count] = data[:sem].upcase
 			end
-			if data[:dept].length > 0
+			if data[:dept] && data[:dept].length > 0
 				queryf[queryf.count] = "dept like ?"
 				querys[querys.count] = "%"+data[:dept].upcase+"%"
 			end
-			if data[:instructor].length > 0
+			if data[:gpr] && data[:gpr].length > 0
+				queryf[queryf.count] = "gpr >= ?"
+				querys[querys.count] = data[:gpr]
+			end
+			if data[:instructor] && data[:instructor].length > 0
 				queryf[queryf.count] = "instructor like ?"
 				querys[querys.count] = "%"+data[:instructor].upcase+"%"
 			end
