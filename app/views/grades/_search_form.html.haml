@@ -6,28 +6,24 @@
 			%td
 				= label :grade, :year, 'Year'
 			%td
-				= label :grade, :year, '='
 			%td
 				= select :grade, :year, {"Any"=>"", 2009=>2009, 2010=>2010, 2011=>2011, 2012=>2012, 2013=>2013, 2014=>2014, 2015=>2015}
 		%tr
 			%td
 				= label :grade, :sem, 'Sem'
 			%td
-				= label :grade, :sem, '='
 			%td
 				= select :grade, :sem, {"Any"=>"", "Fall"=>"FALL", "Spring"=>"SPRING", "Summer"=>"SUMMER"}
 		%tr
 			%td
 				= label :grade, :dept, 'Dept'
 			%td
-				= label :grade, :dept, 'contains'
 			%td
 				= text_field :grade, :dept, :placeholder=>'CSCE or CS or PETE, etc'
 		%tr
 			%td
 				= label :grade, :courseno, 'Course'
 			%td
-				= label :grade, :courseno, '='
 			%td
 				= text_field :grade, :courseno, :placeholder=>'605 or 6%, etc', :size=>10
 				= '-'
@@ -36,7 +32,6 @@
 			%td
 				= label :grade, :instructor, 'Instructor'
 			%td
-				= label :grade, :instructor, 'contains'
 			%td
 				= text_field :grade, :instructor, :placeholder=>'last name of prof.'
 		%tr
