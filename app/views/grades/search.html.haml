@@ -24,7 +24,7 @@
 				= submit_tag "Search"
 
 %h3 Search results
--if @grades.count>0
+-if @grades && @grades.count>0
 	%table
 		%thead
 			%tr
@@ -43,7 +43,7 @@
 				%tr
 					%td=grade.year
 					%td=grade.sem
-					%td=grade.dept+grade.courseno.to_s+'-'+grade.courseno2.to_s
+					%td=grade.dept+' '+grade.courseno.to_s+'-'+grade.courseno2.to_s
 					%td=grade.instructor
 					%td=grade.gpr
 -else

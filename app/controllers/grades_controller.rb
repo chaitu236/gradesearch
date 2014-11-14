@@ -5,13 +5,39 @@ class GradesController < ApplicationController
 	def search
 		data = params[:grade]
 		@grade = Grade.new data
+		queryf = []
+		querys = []
 		if data
-			if data[:courseno]
-				logger.debug('searching for')
-				logger.debug(data[:courseno])
-				@grades = Grade.find_all_by_courseno data[:courseno]
-				logger.debug(@grades)
+			if data[:courseno].length > 0
+				queryf[queryf.count] = "courseno = ?"
+				querys[querys.count] = data[:courseno]
+				#@grades = Grade.find_all_by_courseno data[:courseno]
+				#logger.debug(@grades)
 			end
+			if data[:year].length > 0
+				queryf[queryf.count] = "year = ?"
+				querys[querys.count] = data[:year]
+			end
+			if data[:sem].length > 0
+				queryf[queryf.count] = "sem = ?"
+				querys[querys.count] = data[:sem]
+			end
+			if data[:instructor].length > 0
+				queryf[queryf.count] = "instructor like ?"
+				querys[querys.count] = "%"+data[:instructor]+"%"
+			end
+
+			queryfinalf=''
+			queryf.each do |i| queryfinalf+=i+' and ' end
+
+			queryfinalf = queryfinalf[0..-(' and '.length)]
+
+			queryfinal=[queryfinalf]
+			queryfinal+=querys
+
+			logger.debug('queryfinal')
+			logger.debug(queryfinal)
+			@grades = Grade.where(queryfinal)
 		end
 
 		#redirect_to grades_path
