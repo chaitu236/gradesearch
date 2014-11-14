@@ -35,9 +35,9 @@ class GradesController < ApplicationController
 			queryfinal=[queryfinalf]
 			queryfinal+=querys
 
-			logger.debug('queryfinal')
-			logger.debug(queryfinal)
-			@grades = Grade.where(queryfinal)
+			#logger.debug('queryfinal')
+			#logger.debug(queryfinal)
+			@grades = Grade.where(queryfinal) if queryfinal.length>1
 		end
 
 		#redirect_to grades_path
@@ -47,9 +47,9 @@ class GradesController < ApplicationController
 	end
 
 	def create
-		logger.debug(params)
+		#logger.debug(params)
 		file = params[:file]
-		logger.debug('look here')
+		#logger.debug('look here')
 		#logger.debug(file.read)
 		data = file.read
 		m = /GRADE DISTRIBUTION REPORT FOR (?<sem>\w+) (?<year>\d+)/

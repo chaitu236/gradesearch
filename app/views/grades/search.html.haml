@@ -37,7 +37,29 @@
 				%th
 					Instructor
 				%th
-					Avg GPR
+					GPR
+				%th
+					A
+				%th
+					B
+				%th
+					C
+				%th
+					D
+				%th
+					F
+				%th
+					I
+				%th
+					S
+				%th
+					U
+				%th
+					Q
+				%th
+					X
+				%th
+					Total
 		%tbody
 			-@grades.each do |grade|
 				%tr
@@ -46,5 +68,16 @@
 					%td=grade.dept+' '+grade.courseno.to_s+'-'+grade.courseno2.to_s
 					%td=grade.instructor
 					%td=grade.gpr
+					%td=grade.a
+					%td=grade.b
+					%td=grade.c
+					%td=grade.d
+					%td=grade.f
+					%td=grade.i
+					%td=grade.s
+					%td=grade.u
+					%td=grade.q
+					%td=grade.x
+					%td=grade.total
 -else
 	No results found!
