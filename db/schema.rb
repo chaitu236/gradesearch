@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20141113002256) do
 
   create_table "grades", :force => true do |t|
-    t.integer "sem"
+    t.string  "sem"
     t.integer "year"
     t.string  "dept"
     t.integer "courseno"

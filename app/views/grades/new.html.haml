@@ -1,1 +1,6 @@
-%h2 Hii
+%h2 Upload Grade file
+
+=form_tag grades_path, :multipart=>true, :method=>:post do
+	= label :grade, :title, 'Upload file'
+	= file_field_tag :file
+	= submit_tag 'Upload'

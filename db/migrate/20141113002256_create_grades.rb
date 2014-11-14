@@ -1,7 +1,7 @@
 class CreateGrades < ActiveRecord::Migration
   def up
 		create_table 'grades' do |t|
-			t.integer 'sem'
+			t.string 'sem'
 			t.integer 'year'
 			t.string 'dept'
 			t.integer 'courseno'
