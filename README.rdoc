@@ -1,7 +1,7 @@
 =========Grade Search=========
-This app enables you to search for previous terms' grades of TAMU
-Currently the db is populated with only engineering stream's info
-Info is taken from http://registrar.tamu.edu/facultystaff/report/
-Terms before 2009 fall are not added as they have different format
+This app enables you to search for previous terms' grades of TAMU.
+Currently the db is populated with only engineering stream's info.
+Info is taken from http://registrar.tamu.edu/facultystaff/report/.
+Terms before 2009 fall are not added as they have different format.
 
 -Chaitanya Vadrevu
