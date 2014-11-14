@@ -1,0 +1,28 @@
+%h2 Grade Search
+
+=form_tag :action=>'search'
+%table
+	%tbody
+		%tr
+			%td
+				= label :grade, :year, 'Year'
+				= text_field :grade, :year
+		%tr
+			%td
+				= label :grade, :sem, 'Sem'
+				= text_field :grade, :sem
+		%tr
+			%td
+				= label :grade, :dept, 'Dept'
+				= text_field :grade, :dept
+		%tr
+			%td
+				= label :grade, :courseno, 'Course'
+				= text_field :grade, :courseno
+		%tr
+			%td
+				= label :grade, :instructor, 'Instructor'
+				= text_field :grade, :instructor
+		%tr
+			%td
+				= submit_tag "Search"

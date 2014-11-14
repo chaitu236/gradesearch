@@ -20,11 +20,15 @@ class GradesController < ApplicationController
 			end
 			if data[:sem].length > 0
 				queryf[queryf.count] = "sem = ?"
-				querys[querys.count] = data[:sem]
+				querys[querys.count] = data[:sem].upcase
+			end
+			if data[:dept].length > 0
+				queryf[queryf.count] = "dept = ?"
+				querys[querys.count] = data[:dept].upcase
 			end
 			if data[:instructor].length > 0
 				queryf[queryf.count] = "instructor like ?"
-				querys[querys.count] = "%"+data[:instructor]+"%"
+				querys[querys.count] = "%"+data[:instructor].upcase+"%"
 			end
 
 			queryfinalf=''
@@ -62,6 +66,10 @@ class GradesController < ApplicationController
 
 		data.each do |i|
 			#logger.debug(i)
+			if i.length == 0
+				next
+			end
+
 			if count==0 && i=~/^\w\w\w\w-\d\d\d-\d\d\d/
 				m1 = /^(?<dept>\w+)-(?<courseno>\d+)-(?<courseno2>\d+) (?<gpr>\d+\.\d+) (?<instructor>.+$)/
 				l1 = m1.match i
@@ -74,7 +82,7 @@ class GradesController < ApplicationController
 				count=3
 			elsif count==3
 				Grade.create!(:sem=>sem[:sem], :year=>sem[:year].to_i, :dept=>l1[:dept], :courseno=>l1[:courseno].to_i,
-								:courseno2=>l1[:courseno2].to_i, :gpr=>l1[:gpr].to_f, :instructor=>l1[:instructor], :a=>l2[:a].to_i, 
+								:courseno2=>l1[:courseno2].to_i, :gpr=>l1[:gpr].to_f, :instructor=>URI.unescape(l1[:instructor]).force_encoding('utf-8'), :a=>l2[:a].to_i, 
 								:b=>l2[:b].to_i, :c=>l2[:c].to_i, :d=>l2[:d].to_i, :f=>l2[:f].to_i, :i=>l2[:i].to_i, :s=>l2[:s].to_i, :u=>l2[:u].to_i,
 								:q=>l2[:q].to_i, :x=>l2[:x].to_i, :total=>l2[:total].to_i)
 
