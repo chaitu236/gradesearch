@@ -47,7 +47,7 @@ class GradesController < ApplicationController
 
 			#logger.debug('queryfinal')
 			#logger.debug(queryfinal)
-			@grades = Grade.where(queryfinal) if queryfinal.length>1
+			@grades = Grade.where(queryfinal).order("year DESC", "case sem when 'FALL' then 1 when 'SUMMER' then 2 when 'SPRING' then 3 end") if queryfinal.length>1
 		end
 
 		#redirect_to grades_path
@@ -87,10 +87,12 @@ class GradesController < ApplicationController
 				l2 = m2.match i
 				count=3
 			elsif count==3
-				Grade.create!(:sem=>sem[:sem], :year=>sem[:year].to_i, :dept=>l1[:dept], :courseno=>l1[:courseno].to_i,
+				if(sem && l1 && l2)
+					Grade.create!(:sem=>sem[:sem], :year=>sem[:year].to_i, :dept=>l1[:dept], :courseno=>l1[:courseno].to_i,
 								:courseno2=>l1[:courseno2].to_i, :gpr=>l1[:gpr].to_f, :instructor=>URI.unescape(l1[:instructor]).force_encoding('utf-8'), :a=>l2[:a].to_i, 
 								:b=>l2[:b].to_i, :c=>l2[:c].to_i, :d=>l2[:d].to_i, :f=>l2[:f].to_i, :i=>l2[:i].to_i, :s=>l2[:s].to_i, :u=>l2[:u].to_i,
 								:q=>l2[:q].to_i, :x=>l2[:x].to_i, :total=>l2[:total].to_i)
+				end
 
 				count=0
 			end
