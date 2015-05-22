@@ -1,6 +1,11 @@
 !!! 5
 %html
 	%head
+		%meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
+		%meta{:name => "keywords", :content => "Search for previous term grades of TAMU courses"}
+		%meta{:name => "keywords", :content => "tamu grade search, tamu gradesearch, seaerch tamu grades, grade search, gradesearch"}
+		%meta{:name => "author", :content => "Chaitanya Vadrevu"}
+
 		%title Grade Search!
 		= stylesheet_link_tag 'application'
 		-# = javascript_include_tag 'application'
@@ -13,8 +18,7 @@
 					%td
 						=link_to 'about', '/about'
 
-	%meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
 	%body
-		%h4 Now you can search for Engineering, Business Administration and Science courses
+		%h4 Update: Now you can search for TAMU Engineering, Business Administration and Science courses
 		#main
 			= yield
