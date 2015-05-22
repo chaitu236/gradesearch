@@ -3,7 +3,7 @@
 	%head
 		%title Grade Search!
 		= stylesheet_link_tag 'application'
-		= javascript_include_tag 'application'
+		-# = javascript_include_tag 'application'
 		= csrf_meta_tags
 		%table#title
 			%tbody
@@ -13,6 +13,7 @@
 					%td
 						=link_to 'about', '/about'
 
+	%meta{:name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0;"}
 	%body
 		%h4 Now you can search for Engineering, Business Administration and Science courses
 		#main

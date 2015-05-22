@@ -1,6 +1,9 @@
 Gradesearch::Application.routes.draw do
-	resources :grades
-	post '/grades/search'
+	resources :grades do
+		collection do
+			get 'search'
+		end
+	end
 
 	root :to => redirect('/grades')
   # The priority is based upon order of creation:

@@ -25,6 +25,14 @@ table#search td:nth-child(1){
 	font-weight: bold;
 }
 
+input[type="text"] {
+    max-width: 200px;
+}
+
+#dp input[type="text"] {
+    max-width: 91px;
+}
+
 table#search td:nth-child(2){
 	font-style: italic;
 	font-size: 80%;

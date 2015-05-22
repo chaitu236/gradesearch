@@ -1,4 +1,4 @@
-=form_tag :action=>'search'
+=form_tag search_grades_path, :method=>"get"
 %h4 Select/fill atleast one field and search
 %table#search
 	%tbody
@@ -24,7 +24,7 @@
 			%td
 				= label :grade, :courseno, 'Course'
 			%td
-			%td
+			%td#dp
 				= text_field :grade, :courseno, :placeholder=>'605 or 6%, etc', :size=>13
 				= '-'
 				= text_field :grade, :courseno2, :placeholder=>'level e.g. 501', :size=>13
