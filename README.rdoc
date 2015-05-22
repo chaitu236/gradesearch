@@ -4,6 +4,6 @@ Currently the db is populated with only engineering stream's info.
 Info is taken from http://registrar.tamu.edu/facultystaff/report/.
 Terms before 2009 fall are not added as they have different format.
 
-Currently hosted at http://54.173.123.54/grades
+Currently hosted at http://52.7.202.220
 
 -Chaitanya Vadrevu
