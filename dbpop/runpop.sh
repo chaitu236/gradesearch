@@ -6,6 +6,6 @@ function myfun()
 	./gradepop.rb production.sqlite3 $f
 }
 
-for f in grades/*; do
+for f in todo/*; do
   myfun
 done
