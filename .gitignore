@@ -50,3 +50,5 @@ build/
 *.swp
 *.swo
 *.swn
+
+public/assets/*.gz
